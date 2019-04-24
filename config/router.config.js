@@ -1,0 +1,26 @@
+// https://umijs.org/zh/guide/router.html
+export default [
+  {
+    path: '/user',
+    routes: [{ path: '/user/login', component: './User/Login' }],
+  },
+  {
+    path: '/',
+    component: '../layouts/BasicLayout',
+    routes: [
+      { path: '/', redirect: '/delivery/order-search' },
+      {
+        path: '/delivery',
+        name: 'delivery',
+        icon: 'dashboard',
+        routes: [
+          {
+            path: '/delivery/order-search',
+            name: 'orderSearch',
+            component: './Delivery/Order/OrderSearch',
+          },
+        ],
+      },
+    ],
+  },
+];
