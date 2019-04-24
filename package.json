@@ -6,7 +6,7 @@
     "test": "umi test",
     "lint": "eslint --ext .js src && yarn lint:style && yarn lint:prettier",
     "lint-staged": "lint-staged",
-    "lint-staged:js": "eslint --fix --ext .js",
+    "lint-staged:js": "eslint --fix --ext .js src",
     "lint-staged:style": "stylelint --fix 'src/**/*.less' --syntax less",
     "lint:style": "stylelint 'src/**/*.less' --syntax less",
     "lint:fix": "eslint --fix --ext .js src && stylelint --fix 'src/**/*.less' --syntax less",
@@ -47,11 +47,6 @@
     "umi": "^2.6.14",
     "umi-plugin-react": "^1.7.4"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged"
-    }
-  },
   "lint-staged": {
     "**/*.{js, json, less, md}": [
       "prettier --write",
@@ -65,6 +60,11 @@
       "yarn lint-staged:style",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
   },
   "engines": {
     "node": ">=8.0.0"
