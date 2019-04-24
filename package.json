@@ -10,8 +10,11 @@
     "lint-staged:style": "stylelint --fix 'src/**/*.less' --syntax less",
     "lint:style": "stylelint 'src/**/*.less' --syntax less",
     "lint:fix": "eslint --fix --ext .js src && stylelint --fix 'src/**/*.less' --syntax less",
-    "precommit": "lint-staged",
     "lint:prettier": "check-prettier lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wangdanting/dva-umi-system.git"
   },
   "dependencies": {
     "antd": "^3.16.5",
