@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import styles from './index.less';
 
-const Login = () => <div>login</div>;
+class Login extends PureComponent {
+  login = () => {};
+
+  render() {
+    return <div className={styles.page}>Login</div>;
+  }
+}
 
 export default Login;

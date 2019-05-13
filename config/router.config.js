@@ -2,7 +2,10 @@
 export default [
   {
     path: '/user',
-    routes: [{ path: '/user/login', component: './User/Login' }],
+    routes: [
+      { path: '/user', redirect: '/user/login' },
+      { path: '/user/login', component: './User/Login' },
+    ],
   },
   {
     path: '/',
