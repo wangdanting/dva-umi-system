@@ -9,5 +9,6 @@ module.exports = {
   plugins: ['prettier', 'react', 'compat'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
   },
 };
