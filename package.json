@@ -19,8 +19,10 @@
     "antd": "^3.16.5",
     "dva": "^2.4.1",
     "prop-types": "^15.7.2",
+    "qs": "^6.7.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "umi-request": "^1.0.7"
   },
   "devDependencies": {
     "antd-pro-merge-less": "^1.0.0",
@@ -70,6 +72,11 @@
     }
   },
   "engines": {
-    "node": ">=8.0.0"
-  }
+    "node": ">=10.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
 }

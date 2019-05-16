@@ -25,6 +25,23 @@ export default [
           },
         ],
       },
+      {
+        path: '/exception',
+        name: 'exception',
+        icon: 'warning',
+        routes: [
+          {
+            path: '/exception/403',
+            name: 'not-permission',
+            component: './Exception/403',
+          },
+          {
+            path: '/exception/500',
+            name: 'server-error',
+            component: './Exception/500',
+          },
+        ],
+      },
       { component: '404' },
     ],
   },

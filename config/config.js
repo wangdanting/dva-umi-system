@@ -54,7 +54,7 @@ export default {
   },
   proxy: {
     '/api': {
-      target: 'https://preview.pro.ant.design/',
+      target: 'https://wbd.api.t.jiabangou.com/',
       changeOrigin: true,
       secure: true,
     },
