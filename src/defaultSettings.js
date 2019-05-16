@@ -1,3 +1,3 @@
 module.exports = {
-  primaryColor: '#1890FF', // primary color of ant design
+  primaryColor: '#f08300', // primary color of ant design
 };

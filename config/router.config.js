@@ -5,6 +5,7 @@ export default [
     routes: [
       { path: '/user', redirect: '/user/login' },
       { path: '/user/login', component: './User/Login' },
+      { component: '404' },
     ],
   },
   {
@@ -24,6 +25,7 @@ export default [
           },
         ],
       },
+      { component: '404' },
     ],
   },
 ];

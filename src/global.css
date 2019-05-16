@@ -6,3 +6,7 @@ html, body, #root {
 body {
   margin: 0;
 }
+
+p, h2 {
+  margin: 0;
+}
