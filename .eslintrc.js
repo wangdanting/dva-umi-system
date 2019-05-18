@@ -12,6 +12,13 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'react/prop-types': 0,
     'import/no-unresolved': [2, { ignore: ['^@/', '^umi/'] }],
+    'import/no-extraneous-dependencies': [
+      2,
+      {
+        optionalDependencies: true,
+        devDependencies: ['**/tests/**.js', '/mock/**/**.js', '**/**.test.js'],
+      },
+    ],
   },
   settings: {
     polyfills: ['URL'],

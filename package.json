@@ -22,6 +22,8 @@
     "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "umi": "^2.6.17",
+    "umi-plugin-react": "^1.7.6",
     "umi-request": "^1.0.7"
   },
   "devDependencies": {
@@ -48,9 +50,7 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.0.0",
-    "stylelint-order": "^3.0.0",
-    "umi": "^2.6.14",
-    "umi-plugin-react": "^1.7.4"
+    "stylelint-order": "^3.0.0"
   },
   "lint-staged": {
     "**/*.{js, json, less, md}": [
@@ -72,7 +72,7 @@
     }
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=8.0.0"
   },
   "browserslist": [
     "> 1%",
