@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Form, Input, Icon, Card, Button } from 'antd';
 import { connect } from 'dva';
+import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
+import SelectLang from '@/components/SelectLang';
 import Copyright from './copyright';
 import styles from './index.less';
 
@@ -37,36 +39,53 @@ class Login extends PureComponent {
       loading,
     } = this.props;
 
-    const cardTitle = <div className={styles.cardTitle}>欢迎登录</div>;
+    const cardTitle = (
+      <div className={styles.cardTitle}>
+        <FormattedMessage id="login.card-title" />
+      </div>
+    );
 
     return (
       <div className={styles.page}>
         <Card
           className={styles.card}
-          title={cardTitle}
+          title={cardTitle} // 欢迎登录
+          extra={<SelectLang />} // 语言
           bordered={false}
           bodyStyle={{ padding: '40px 24px' }}
         >
           <Form onSubmit={this.handleSubmit}>
             <FormItem>
               {getFieldDecorator('account', {
-                rules: [{ required: true, message: '请输入登录帐号!', whitespace: true }],
+                rules: [
+                  {
+                    required: true,
+                    message: formatMessage({ id: 'login.validation.account' }), // 请输入登录帐号!
+                    whitespace: true,
+                  },
+                ],
               })(
                 <Input
                   prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   size="large"
-                  placeholder="请输入登录帐号/15000000003"
+                  placeholder={formatMessage({ id: 'login.placeholder.account' })} // 请输入登录帐号/15000000003
                 />
               )}
             </FormItem>
             <FormItem>
               {getFieldDecorator('password', {
-                rules: [{ required: true, message: '请输入登录密码!', whitespace: true }],
+                rules: [
+                  {
+                    required: true,
+                    message: formatMessage({ id: 'login.validation.password' }), // 请输入登录密码!
+                    whitespace: true,
+                  },
+                ],
               })(
                 <Input
                   prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   size="large"
-                  placeholder="请输入登录密码/111111"
+                  placeholder={formatMessage({ id: 'login.placeholder.password' })} // 请输入登录密码/111111
                 />
               )}
             </FormItem>
@@ -78,7 +97,8 @@ class Login extends PureComponent {
                 className={styles.btn}
                 loading={loading}
               >
-                登录
+                {/* 登录 */}
+                <FormattedMessage id="login.login" />
               </Button>
             </FormItem>
           </Form>

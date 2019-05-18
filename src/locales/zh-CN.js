@@ -1,3 +1,5 @@
+import login from './zh-CN/login';
+
 export default {
   'navBar.lang': '语言',
   'navBar.title': '基础管理平台',
@@ -7,4 +9,5 @@ export default {
   'navBar.nav.user-center': '用户中心',
   'navBar.change-password': '修改密码',
   'navBar.logout': '退出登录',
+  ...login,
 };

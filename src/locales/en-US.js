@@ -1,3 +1,5 @@
+import login from './en-US/login';
+
 export default {
   'navBar.lang': 'Languages',
   'navBar.title': 'Manage Platform',
@@ -7,4 +9,5 @@ export default {
   'navBar.nav.user-center': 'User Center',
   'navBar.change-password': 'Password',
   'navBar.logout': 'Logout',
+  ...login,
 };
