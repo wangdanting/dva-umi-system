@@ -46,14 +46,14 @@ class SiderMenu extends PureComponent {
   render() {
     const { openKeys } = this.state;
     return (
-      <Sider width={256} theme="dark">
+      <Sider width={200} style={{ background: '#4f595d' }}>
         <Suspense fallback={<PageLoading />}>
           <BaseMenu
             {...this.props}
             mode="inline"
             handleOpenChange={this.handleOpenChange}
             onOpenChange={this.handleOpenChange}
-            style={{ padding: '16px 0', width: '100%' }}
+            style={{ padding: '16px 0', width: '100%', background: '#4f595d' }}
             openKeys={openKeys}
             collapsed={false}
           />

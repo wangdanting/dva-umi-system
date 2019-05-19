@@ -2,13 +2,16 @@ import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
 import { connect } from 'dva';
 import { getFlatMenuKeys } from '@/components/BaseMenu/SiderMenuUtils';
+import Context from './MenuContext';
 import Header from './Header';
 import SiderMenu from './SiderMenu';
+import styles from './BasicLayout.less';
 
 const { Content } = Layout;
 
 @connect(({ menu }) => ({
   menuData: menu.menuData,
+  breadcrumbNameMap: menu.breadcrumbNameMap,
 }))
 class BasicLayout extends PureComponent {
   componentDidMount() {
@@ -26,16 +29,26 @@ class BasicLayout extends PureComponent {
     });
   };
 
+  getContext() {
+    const { location, breadcrumbNameMap } = this.props;
+    return {
+      location,
+      breadcrumbNameMap,
+    };
+  }
+
   render() {
     const { children, menuData, location } = this.props;
     const flatMenuKeys = getFlatMenuKeys(menuData);
     return (
-      <Layout>
+      <Layout style={{ height: '100%' }}>
         <Header getMenuData={this.getMenuData} />
         <Layout>
           <SiderMenu menuData={menuData} location={location} flatMenuKeys={flatMenuKeys} />
-          <Layout>
-            <Content>{children}</Content>
+          <Layout className={styles.content}>
+            <Content>
+              <Context.Provider value={this.getContext()}>{children}</Context.Provider>
+            </Content>
           </Layout>
         </Layout>
       </Layout>

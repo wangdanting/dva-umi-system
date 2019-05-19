@@ -1,4 +1,5 @@
 export default {
+  'menu.home': 'Home',
   'menu.delivery': 'Table',
   'menu.delivery.orderSearch': 'Order Search',
   'menu.delivery.orderDetail': 'Order Detail',

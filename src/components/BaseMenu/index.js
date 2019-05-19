@@ -117,7 +117,6 @@ export default class BaseMenu extends PureComponent {
   render() {
     const {
       openKeys,
-      theme,
       mode,
       location: { pathname },
       className,
@@ -144,7 +143,7 @@ export default class BaseMenu extends PureComponent {
         <Menu
           key="Menu"
           mode={mode}
-          theme={theme}
+          theme="dark"
           onOpenChange={handleOpenChange}
           selectedKeys={selectedKeys}
           style={style}
