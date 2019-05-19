@@ -1,30 +1,46 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
-import PropTypes from 'prop-types';
+import { connect } from 'dva';
+import { getFlatMenuKeys } from '@/components/BaseMenu/SiderMenuUtils';
 import Header from './Header';
 import SiderMenu from './SiderMenu';
 
 const { Content } = Layout;
 
-const BasicLayout = ({ children }) => (
-  <Layout>
-    <Header />
-    <Layout>
-      <SiderMenu />
+@connect(({ menu }) => ({
+  menuData: menu.menuData,
+}))
+class BasicLayout extends PureComponent {
+  componentDidMount() {
+    this.getMenuData();
+  }
+
+  getMenuData = () => {
+    const {
+      dispatch,
+      route: { routes, path, authority },
+    } = this.props;
+    dispatch({
+      type: 'menu/getMenuData',
+      payload: { routes, path, authority },
+    });
+  };
+
+  render() {
+    const { children, menuData, location } = this.props;
+    const flatMenuKeys = getFlatMenuKeys(menuData);
+    return (
       <Layout>
-        <Content>{children}</Content>
+        <Header getMenuData={this.getMenuData} />
+        <Layout>
+          <SiderMenu menuData={menuData} location={location} flatMenuKeys={flatMenuKeys} />
+          <Layout>
+            <Content>{children}</Content>
+          </Layout>
+        </Layout>
       </Layout>
-    </Layout>
-    {children}
-  </Layout>
-);
-
-BasicLayout.propTypes = {
-  children: PropTypes.node,
-};
-
-BasicLayout.defaultProps = {
-  children: null,
-};
+    );
+  }
+}
 
 export default BasicLayout;

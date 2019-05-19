@@ -1,4 +1,5 @@
 import login from './en-US/login';
+import menu from './zh-CN/menu';
 
 export default {
   'navBar.lang': 'Languages',
@@ -10,4 +11,5 @@ export default {
   'navBar.change-password': 'Password',
   'navBar.logout': 'Logout',
   ...login,
+  ...menu,
 };

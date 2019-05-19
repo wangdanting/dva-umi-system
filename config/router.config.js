@@ -23,12 +23,31 @@ export default [
             name: 'orderSearch',
             component: './Delivery/Order/OrderSearch',
           },
+          {
+            path: '/delivery/order-detail',
+            name: 'orderDetail',
+            component: './Delivery/Order/OrderDetail',
+          },
+        ],
+      },
+      {
+        path: '/form',
+        name: 'form',
+        authority: ['delivery', 'transaction'],
+        icon: 'dashboard',
+        routes: [
+          {
+            path: '/form/courier-form',
+            name: 'courierForm',
+            component: './Delivery/Form',
+          },
         ],
       },
       {
         path: '/exception',
         name: 'exception',
         icon: 'warning',
+        authority: ['partner', 'userCenter'],
         routes: [
           {
             path: '/exception/403',

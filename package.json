@@ -17,7 +17,11 @@
   },
   "dependencies": {
     "antd": "^3.16.5",
+    "classnames": "^2.2.6",
     "dva": "^2.4.1",
+    "lodash": "^4.17.11",
+    "memoize-one": "^5.0.4",
+    "path-to-regexp": "^3.0.0",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
     "react": "^16.8.6",
