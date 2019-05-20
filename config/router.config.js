@@ -55,6 +55,11 @@ export default [
             component: './Exception/403',
           },
           {
+            path: '/exception/404',
+            name: 'not-find',
+            component: './404',
+          },
+          {
             path: '/exception/500',
             name: 'server-error',
             component: './Exception/500',

@@ -7,5 +7,6 @@ export default {
   'menu.form.courierForm': 'Basic Form',
   'menu.exception': 'Exception',
   'menu.exception.not-permission': '403',
+  'menu.exception.not-find': '404',
   'menu.exception.server-error': '500',
 };

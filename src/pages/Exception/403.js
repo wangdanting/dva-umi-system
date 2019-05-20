@@ -1,5 +1,14 @@
 import React from 'react';
+import { formatMessage } from 'umi/locale';
+import Link from 'umi/link';
+import Exception from '@/components/Exception';
 
-const Page403 = () => <div>Page403</div>;
-
-export default Page403;
+const Exception403 = () => (
+  <Exception
+    type="403"
+    desc={formatMessage({ id: 'exception.description.403' })}
+    linkElement={Link}
+    backText={formatMessage({ id: 'exception.back' })}
+  />
+);
+export default Exception403;
