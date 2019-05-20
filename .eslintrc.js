@@ -21,6 +21,6 @@ module.exports = {
     ],
   },
   settings: {
-    polyfills: ['URL'],
+    polyfills: ['URL', 'Object.assign'],
   },
 };

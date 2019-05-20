@@ -1,6 +1,7 @@
 import { extend } from 'umi-request';
 import { notification } from 'antd';
 import router from 'umi/router';
+import Storage from './storage';
 
 const errorMsg = '网络请求超时，请重新登录!';
 
@@ -50,6 +51,7 @@ const errorHandler = error => {
 const request = extend({
   errorHandler, // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie
+  headers: { Authorization: Storage.session.get('Authorization') },
 });
 
 export default request;
