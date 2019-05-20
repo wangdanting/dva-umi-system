@@ -3,7 +3,8 @@ import { Layout, Button, Icon, Popconfirm } from 'antd';
 import SelectLang from '@/components/SelectLang';
 import { setAuthority } from '@/utils/authority';
 import { reloadAuthorized } from '@/utils/Authorized';
-import { FormattedMessage } from 'umi-plugin-react/locale';
+
+import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import classNames from 'classnames';
 import styles from './Header.less';
 
@@ -25,6 +26,7 @@ class HeaderDom extends PureComponent {
   };
 
   render() {
+    const { layout } = this.props;
     const { activeBtn } = this.state;
     return (
       <Header className={styles.container}>
@@ -83,9 +85,10 @@ class HeaderDom extends PureComponent {
           <span>
             <Popconfirm
               placement="bottomRight"
-              title="您确定要退出登录?"
-              okText="确定"
-              cancelText="取消"
+              title={formatMessage({ id: 'header.popconfirm' })}
+              okText={formatMessage({ id: 'header.popconfirm.ok' })}
+              cancelText={formatMessage({ id: 'header.popconfirm.cancel' })}
+              onConfirm={layout}
             >
               <Icon type="logout" className={styles.icon} />
               <span>

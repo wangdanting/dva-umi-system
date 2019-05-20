@@ -37,12 +37,19 @@ class BasicLayout extends PureComponent {
     };
   }
 
+  layout = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'login/logout',
+    });
+  };
+
   render() {
     const { children, menuData, location } = this.props;
     const flatMenuKeys = getFlatMenuKeys(menuData);
     return (
       <Layout style={{ height: '100%' }}>
-        <Header getMenuData={this.getMenuData} />
+        <Header getMenuData={this.getMenuData} layout={this.layout} />
         <Layout>
           <SiderMenu menuData={menuData} location={location} flatMenuKeys={flatMenuKeys} />
           <Layout className={styles.content}>
