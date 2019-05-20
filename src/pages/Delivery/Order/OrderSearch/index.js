@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Card, Form, Col, Row, DatePicker, Radio } from 'antd';
 import moment from 'moment';
 import { connect } from 'dva';
+import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import Result from './Result';
 
@@ -93,33 +94,64 @@ class OrderSearch extends PureComponent {
       queryData: { page, size },
     } = this.props;
     return (
-      <PageHeaderWrapper title="订单查询">
+      <PageHeaderWrapper title={formatMessage({ id: 'orderSearch.navTitle' })}>
+        {/* 订单查询 */}
         <Card bordered={false}>
           <Form layout="inline">
             <Row>
               <Col>
-                <FormItem label="订单状态">
+                {/* 订单状态 */}
+                <FormItem label={formatMessage({ id: 'orderSearch.orderStatus' })}>
                   <RadioGroup defaultValue="all" onChange={e => this.handleChange(e, 'status')}>
-                    <Radio value="all">全部</Radio>
-                    <Radio value="wait_send">待配送</Radio>
-                    <Radio value="sending">配送中</Radio>
-                    <Radio value="arrived">已送达</Radio>
-                    <Radio value="cancelled">已取消</Radio>
+                    <Radio value="all">
+                      {/* 全部 */}
+                      <FormattedMessage id="orderSearch.orderStatus.all" />
+                    </Radio>
+                    <Radio value="wait_send">
+                      {/* 待配送 */}
+                      <FormattedMessage id="orderSearch.orderStatus.waitSend" />
+                    </Radio>
+                    <Radio value="sending">
+                      {/* 配送中 */}
+                      <FormattedMessage id="orderSearch.orderStatus.sending" />
+                    </Radio>
+                    <Radio value="arrived">
+                      {/* 已送达 */}
+                      <FormattedMessage id="orderSearch.orderStatus.arrived" />
+                    </Radio>
+                    <Radio value="cancelled">
+                      {/* 已取消 */}
+                      <FormattedMessage id="orderSearch.orderStatus.cancelled" />
+                    </Radio>
                   </RadioGroup>
                 </FormItem>
               </Col>
               <Col>
-                <FormItem label="订单类型">
+                {/* 订单类型 */}
+                <FormItem label={formatMessage({ id: 'orderSearch.orderWay' })}>
                   <RadioGroup defaultValue="all" onChange={e => this.handleChange(e, 'orderWay')}>
-                    <Radio value="all">全部</Radio>
-                    <Radio value="general">普通下单</Radio>
-                    <Radio value="fast">一键下单</Radio>
-                    <Radio value="proxy">跑腿代购</Radio>
+                    <Radio value="all">
+                      {/* 全部 */}
+                      <FormattedMessage id="orderSearch.orderWay.all" />
+                    </Radio>
+                    <Radio value="general">
+                      {/* 普通下单 */}
+                      <FormattedMessage id="orderSearch.orderWay.general" />
+                    </Radio>
+                    <Radio value="fast">
+                      {/* 一键下单 */}
+                      <FormattedMessage id="orderSearch.orderWay.fast" />
+                    </Radio>
+                    <Radio value="proxy">
+                      {/* 跑腿代购 */}
+                      <FormattedMessage id="orderSearch.orderWay.proxy" />
+                    </Radio>
                   </RadioGroup>
                 </FormItem>
               </Col>
               <Col>
-                <FormItem label="日期">
+                {/* 日期 */}
+                <FormItem label={formatMessage({ id: 'orderSearch.orderWay.range' })}>
                   <RangePicker
                     style={{ width: 250 }}
                     defaultValue={todayRange}

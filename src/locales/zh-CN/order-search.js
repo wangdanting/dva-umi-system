@@ -1,0 +1,15 @@
+export default {
+  'orderSearch.navTitle': '订单查询',
+  'orderSearch.orderStatus': '订单状态',
+  'orderSearch.orderStatus.all': '全部',
+  'orderSearch.orderStatus.waitSend': '待配送',
+  'orderSearch.orderStatus.sending': '配送中',
+  'orderSearch.orderStatus.arrived': '已送达',
+  'orderSearch.orderStatus.cancelled': '已取消',
+  'orderSearch.orderWay': '订单类型',
+  'orderSearch.orderWay.all': '全部',
+  'orderSearch.orderWay.general': '普通下单',
+  'orderSearch.orderWay.fast': '一键下单',
+  'orderSearch.orderWay.proxy': '跑腿代购',
+  'orderSearch.orderWay.range': '日期',
+};

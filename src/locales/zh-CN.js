@@ -1,5 +1,6 @@
 import login from './zh-CN/login';
 import menu from './zh-CN/menu';
+import orderSearch from './zh-CN/order-search';
 
 export default {
   'navBar.lang': '语言',
@@ -12,4 +13,5 @@ export default {
   'navBar.logout': '退出登录',
   ...login,
   ...menu,
+  ...orderSearch,
 };

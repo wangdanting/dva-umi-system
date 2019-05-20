@@ -1,5 +1,6 @@
 import login from './en-US/login';
-import menu from './zh-CN/menu';
+import menu from './en-US/menu';
+import orderSearch from './en-US/order-search';
 
 export default {
   'navBar.lang': 'Languages',
@@ -12,4 +13,5 @@ export default {
   'navBar.logout': 'Logout',
   ...login,
   ...menu,
+  ...orderSearch,
 };
