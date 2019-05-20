@@ -11,6 +11,7 @@ export default {
   'navBar.nav.user-center': 'User Center',
   'navBar.change-password': 'Password',
   'navBar.logout': 'Logout',
+  'components.pagination': 'Total {total} item',
   ...login,
   ...menu,
   ...orderSearch,

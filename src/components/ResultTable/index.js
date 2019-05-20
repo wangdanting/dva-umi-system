@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Table } from 'antd';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { FormattedMessage } from 'umi-plugin-react/locale';
 import styles from './index.less';
 
 class ResultTable extends PureComponent {
@@ -66,7 +67,7 @@ class ResultTable extends PureComponent {
       total: dataTotal,
       current: current + 1,
       pageSize,
-      showTotal: total => `总共 ${total} 条`,
+      showTotal: total => <FormattedMessage id="components.pagination" values={{ total }} />,
       onChange: this.onChange,
       onShowSizeChange: this.onShowSizeChange,
     };

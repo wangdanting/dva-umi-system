@@ -11,6 +11,7 @@ export default {
   'navBar.nav.user-center': '用户中心',
   'navBar.change-password': '修改密码',
   'navBar.logout': '退出登录',
+  'components.pagination': '总共 {total} 条',
   ...login,
   ...menu,
   ...orderSearch,

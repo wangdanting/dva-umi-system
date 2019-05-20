@@ -1,25 +1,30 @@
 import React from 'react';
 import Link from 'umi/link';
+import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import ResultTable from '@/components/ResultTable';
 
 const columns = [
   {
-    title: '订单号',
+    // 订单号
+    title: formatMessage({ id: 'orderSearch.table.expressOrderId' }),
     dataIndex: 'expressOrderId',
     key: 'expressOrderId',
   },
   {
-    title: '订单类型',
+    // 订单类型
+    title: formatMessage({ id: 'orderSearch.table.orderWayName' }),
     dataIndex: 'orderWayName',
     key: 'orderWayName',
   },
   {
-    title: '配送站',
+    // 配送站
+    title: formatMessage({ id: 'orderSearch.table.merchName' }),
     dataIndex: 'merchName',
     key: 'merchName',
   },
   {
-    title: '发货信息',
+    // 发货信息
+    title: formatMessage({ id: 'orderSearch.table.deliveryFromDesc' }),
     dataIndex: 'deliveryFromDesc',
     key: 'deliveryFromDesc',
     render: (text, record) => {
@@ -33,7 +38,8 @@ const columns = [
     },
   },
   {
-    title: '收货信息',
+    // 收货信息
+    title: formatMessage({ id: 'orderSearch.table.deliveryDestDesc' }),
     dataIndex: 'deliveryDestDesc',
     key: 'deliveryDestDesc',
     render: (text, record) => {
@@ -46,7 +52,8 @@ const columns = [
     },
   },
   {
-    title: '配送员',
+    // 配送员
+    title: formatMessage({ id: 'orderSearch.table.courier' }),
     dataIndex: 'courier',
     key: 'courier',
     render: (text, record) => {
@@ -59,12 +66,14 @@ const columns = [
     },
   },
   {
-    title: '订单支付时间',
+    // 订单支付时间
+    title: formatMessage({ id: 'orderSearch.table.paidTimeFormat' }),
     dataIndex: 'paidTimeFormat',
     key: 'paidTimeFormat',
   },
   {
-    title: '配送费',
+    // 配送费
+    title: formatMessage({ id: 'orderSearch.table.deliveryFee' }),
     dataIndex: 'deliveryFee',
     key: 'deliveryFee',
     render: text => {
@@ -72,22 +81,29 @@ const columns = [
     },
   },
   {
-    title: '配送类型',
+    // 配送类型
+    title: formatMessage({ id: 'orderSearch.table.orderTypeName' }),
     dataIndex: 'orderTypeName',
     key: 'orderTypeName',
   },
   {
-    title: '状态',
+    // 状态
+    title: formatMessage({ id: 'orderSearch.table.statusName' }),
     dataIndex: 'statusName',
     key: 'statusName',
   },
   {
-    title: '操作',
+    // 操作
+    title: formatMessage({ id: 'orderSearch.table.operate' }),
     dataIndex: 'operate',
     key: 'operate',
     width: 85,
     render: (text, record) => {
-      return <Link to={`/order/list/detail/${record.expressOrderId}`}>查看详情</Link>;
+      return (
+        <Link to={`/order/list/detail/${record.expressOrderId}`}>
+          <FormattedMessage id="orderSearch.table.goToDetail" />
+        </Link>
+      );
     },
   },
 ];
