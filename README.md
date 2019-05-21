@@ -6,9 +6,9 @@
 <div align="center">
 <p float="left">
 
-<img src="./src/assets/images/login-china.jpg" height="800px">
+<img src="./src/assets/images/login-china.jpg" width="800px">
 
-<img src="./src/assets/images/page-china.jpg" height="800px">
+<img src="./src/assets/images/page-china.jpg" width="800px">
 
 </p>
 </div>
