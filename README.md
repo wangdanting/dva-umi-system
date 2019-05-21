@@ -123,6 +123,7 @@
 在`/src/models`下放状态管理文件，`namespace`命名则为引用的单词。👇下面为例子
 
 ```javascript
+import login from '@/services/login';
 export default {
   namespace: 'login',
   state: {
@@ -179,5 +180,27 @@ class Login extends PureComponent {
   }
 }
 export default Login;
+```
 
+### 存放请求services
+
+在`/src/services`下创建文件，👇下面为例子
+
+```javascript
+import request from '@/utils/request';
+
+export default async function login(payload) {
+  return request('/api/bp/sessions/create', {
+    method: 'post',
+    params: payload,
+  });
+}
+```
+
+## 代码检测
+
+添加了第三方钩子，如果代码不符合规范，`会不能提交代码`，你可在提交代码前可以运行👇以下命令行进行代码检测，`查看不规范的代码文件提示后进行修改`。
+
+```shell
+  yarn lint:fix
 ```
