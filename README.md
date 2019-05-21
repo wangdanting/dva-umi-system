@@ -26,10 +26,40 @@
 
 - **最新技术栈**：使用 React/umi/dva/antd 等前端前沿技术开发
 - **国际化**： 内建业界通用的国际化方案 案例支持 中文/英文
+- **快速上手**：可直接写业务代码
 
-## 简单的路由配置
+## 预览
 
-[使用配置式路由 ](https://umijs.org/zh/guide/router.html)
+克隆代码
+
+```shell
+  // Use SSH
+  git clone git@github.com:wangdanting/dva-umi-system.git
+
+  // Use HTTPS
+  https://github.com/wangdanting/dva-umi-system.git
+```
+
+安装依赖
+
+```shell
+  cd dva-umi-system
+  yarn install
+```
+
+运行代码
+
+```shell
+  yarn start
+```
+
+浏览器打开 `http://localhost:8000/`
+
+## 开发
+
+### 简单的路由配置
+
+[使用配置式路由 ](https://umijs.org/zh/guide/router.html) `/config/router.config.js`
 
 ```javascript
 [
@@ -66,4 +96,88 @@
     ],
   },
 ];
+```
+
+### 代理配置
+
+在`config/config.js`文件中修改代理服务
+
+```javascript
+  proxy: {
+    '/api': {
+      target: 'https://wbd.api.t.jiabangou.com/',
+      changeOrigin: true,
+      secure: true,
+    },
+  },
+```
+
+### 业务
+
+在 `/src/pages` 下建立业务文件
+
+具体请看例子参考
+
+### 状态管理
+
+在`/src/models`下放状态管理文件，`namespace`命名则为引用的单词。👇下面为例子
+
+```javascript
+export default {
+  namespace: 'login',
+  state: {
+    loading: false, // 设置按钮载入状态
+  },
+  effects: {
+    *login({ payload }, { call, put }) {
+      yield put({
+        type: 'setState',
+        payload: {
+          loading: true,
+        },
+      });
+      const { result } = yield call(login, payload);
+    },
+  },
+  reducers: {
+    setState(state, { payload }) {
+      return {
+        ...state,
+        ...payload,
+      };
+    },
+  },
+};
+```
+
+### 使用状态管理
+
+```javascript
+import { connect } from 'dva';
+
+@connect(({ login }) => ({
+  loading: login.loading,
+}))
+class Login extends PureComponent {
+  handleSubmit = () => {
+    const { dispatch } = this.props;
+
+    //调用登录方法
+    dispatch({
+      type: 'login/login',
+      payload: {},
+    });
+  };
+
+  render() {
+    const { loading } = this.props;
+    return (
+      <Button onClick={this.handleSubmit} loading={loading}>
+        登录
+      </Button>
+    );
+  }
+}
+export default Login;
+
 ```
