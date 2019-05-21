@@ -205,7 +205,7 @@ export default async function login(payload) {
   yarn lint:fix
 ```
 
-### 国际化
+## 国际化
 
 <div align="center">
 
