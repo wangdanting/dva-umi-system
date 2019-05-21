@@ -204,3 +204,49 @@ export default async function login(payload) {
 ```shell
   yarn lint:fix
 ```
+
+### 国际化
+
+<div align="center">
+
+<p float="left">
+
+<img src="./src/assets/images/login-language.jpg" width="400px">
+
+<img src="./src/assets/images/login-en.jpg" width="400px">
+
+<img src="./src/assets/images/page-language.jpg" width="400px">
+
+<img src="./src/assets/images/page-en.jpg" width="400px">
+
+</p>
+
+</div>
+
+在`/src/locales`下添加需翻译的字段，👇例子
+
+```javascript
+  // zh-CN.js
+  export default {
+    'navBar.lang': '语言',
+    'navBar.title': '基础管理平台'
+  }
+
+  // en-US.js
+  export default {
+    'navBar.lang': 'Languages',
+    'navBar.title': 'Basic Manage Platform',
+  }
+```
+
+在业务代码中引用
+
+```javascript
+  import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
+
+  // 组件式引用
+  <FormattedMessage id="navBar.lang" />
+
+  // 方法式引用
+  formatMessage({ id: 'navBar.title' })
+```
