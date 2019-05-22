@@ -253,6 +253,36 @@ export default async function login(payload) {
   formatMessage({ id: 'navBar.title' })
 ```
 
+## 模版
+
+```javascript
+- assets (公共资源)
+- components (封装组件)
+  - Authorized (权限相关组件)
+  - BaseMenu (左边菜单组件)
+  - Exception (异常页组件)
+  - PageHeaderWrapper (面包屑组件)
+  - PageLoading(loading组件)
+  - ResultTable(table组件)
+  - SelectLang(选择语言组件)
+- layouts (框架布局)
+- locales (语言)
+  - en-US.js (英文)
+  - zh-CN.js (中文)
+- modules
+- pages (业务)
+- utils
+  - exportFile (封装下载文件)
+  - handleBreadcrumb (封装处理面包屑导航)
+  - pubsubmsg (封装订阅和发布)
+  - renderRoutes (封装处理路由)
+  - request (封装请求)
+  - storage (封装Storage)
+  - util (公共方法)
+- app.js
+- defaultSettings.js (less变量)
+```
+
 ## 支持环境
 
 现代浏览器及 IE11。
